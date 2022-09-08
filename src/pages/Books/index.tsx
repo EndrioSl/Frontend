@@ -8,7 +8,7 @@ interface iBook {
   id: number; 
   title: string; 
   author: string; 
-  description: string; 
+  isbn: string; 
   status: boolean; 
 }
  
@@ -47,7 +47,7 @@ const Detail: React.FC = () => {
   } 
 
   function viewBook (id: number) { 
-    history.push(`/Livros/${1}`)
+    history.push(`/Livros/${id}`)
   } 
 
   return (
@@ -63,7 +63,7 @@ const Detail: React.FC = () => {
               <th>ID</th>
               <th>Titulo</th>
               <th>Autor</th> 
-              <th>Resumo</th>
+              <th>ISBN</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -75,7 +75,7 @@ const Detail: React.FC = () => {
                       <td> { book.id }</td>
                       <td> { book.title } </td>
                       <td> { book.author} </td>
-                      <td> { book.description} </td> 
+                      <td> { book.isbn} </td> 
                       <td>   
                           <Badge bg={ book.status ? "success" : "warning" }>
                           { book.status ? 'Diponivel' : 'Indisponivel' } 

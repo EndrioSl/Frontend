@@ -5,13 +5,19 @@ import api from '../../../services/api';
  
 import moment from 'moment';  
 
-interface iBook { 
-  title: string; 
-  author: string;  
-  status: boolean;
-  description: string;   
-  created_at: Date;  
-} 
+interface iBook {  
+    isbn: string; 
+    title: string; 
+    author: string;  
+    publisher: string; 
+    edition: number;
+    topic: string; 
+    year_published: number;
+    description: string;  
+    status: boolean; 
+    created_at: Date;
+  }
+   
   
 interface IParamsProps {
   id: string;
@@ -58,6 +64,18 @@ const Books: React.FC = () => {
                 <Card.Body> 
                     <Card.Title> { book?.author }</Card.Title>
                     <Card.Text> 
+                    <br/>   
+                    <strong>Editora: </strong>
+                    {book?.publisher} 
+                    <br/>  
+                    <strong>Edição: </strong>
+                    {book?.edition} 
+                    <br/>   
+                    <strong>Assunto: </strong>
+                    {book?.topic} 
+                    <br/>   
+                    <strong>Ano de Publicação: </strong>
+                    {book?.year_published} 
                     <br/>  
                     <strong>Sinopse: </strong>
                     {book?.description} 
