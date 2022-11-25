@@ -4,7 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home'; 
 import Books from './pages/Books'; 
 import BooksForm from './pages/Books/Form';
-import BooksDetail from './pages/Books/Detail';
+import BooksDetail from './pages/Books/Detail'; 
+import Libraries from './pages/Libraries/Form';
 
 
 const Routes: React.FC = () => { 
@@ -14,7 +15,8 @@ const Routes: React.FC = () => {
             <Route path="/Livros" exact component={Books} />  
             <Route path="/Livros/:id" exact component={BooksDetail} /> 
             <Route path="/CadastroLivros" exact component={BooksForm} /> 
-            <Route path="/CadastroLivros/:id" exact component={BooksForm} /> 
+            <Route path="/CadastroLivros/:id" exact component={BooksForm} />  
+            <Route path="/Bibliotecas" exact component={Libraries} />  
         </Switch> 
     ); 
 }   
