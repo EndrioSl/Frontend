@@ -31,9 +31,9 @@ const LibraryLogin = () => {
                     const libraryLoginRepository: iLibraryLoginRepository = {
                         id: login.id,
                         email: login.email, 
-                        nome: login.nome,
-                    }  
-                    console.log("entrou");
+                        nome: login.nome, 
+                    }   
+                    console.log('entrou');
                     configureLoginStorage(libraryLoginRepository);
                 }   
             }  
@@ -60,7 +60,7 @@ const LibraryLogin = () => {
                         <h1>Cadastro Biblioteca</h1>
                     </div>
                     <div className="container">
-                        <Form onSubmit={onSubmit}>
+                        <Form onSubmit={handleSubmit}>
                             <Form.Group>
                                 <Form.Label>E-mail</Form.Label>
                                 <Form.Control
