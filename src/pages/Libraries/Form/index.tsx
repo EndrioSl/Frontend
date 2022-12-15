@@ -3,8 +3,6 @@ import { useHistory, useParams } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';  
 import api from '../../../services/api';   
 
-console.log("entrou") 
-
 interface iLibrary {  
   email: string; 
   password: string; 

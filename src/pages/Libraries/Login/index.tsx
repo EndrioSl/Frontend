@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import api from '../../../services/api';
 import { useFormik } from "formik";
@@ -16,8 +16,10 @@ interface iLibraryLoginRepository {
     email: string;
     nome: string;
 }
-const LibraryLogin = () => { 
+const LibraryLogin: React.FC = () => {   
      
+        const history = useHistory()
+
         const location = useLocation(); 
      
         const onSubmit = async () => {
@@ -32,9 +34,9 @@ const LibraryLogin = () => {
                         id: login.id,
                         email: login.email, 
                         nome: login.nome, 
-                    }   
-                    console.log('entrou');
-                    configureLoginStorage(libraryLoginRepository);
+                    }    
+                    configureLoginStorage(libraryLoginRepository);  
+                    history.push("/Livros");
                 }   
             }  
             
@@ -57,7 +59,7 @@ const LibraryLogin = () => {
             return (
                 <div className="container">
                     <div className='library-header'>
-                        <h1>Cadastro Biblioteca</h1>
+                        <h1>Logar em biblioteca</h1>
                     </div>
                     <div className="container">
                         <Form onSubmit={handleSubmit}>
@@ -82,7 +84,7 @@ const LibraryLogin = () => {
                                 />
                             </Form.Group>
                             <Button variant="dark" type="submit">
-                                Salvar
+                                Entrar
                             </Button>
                         </Form>
                     </div>
