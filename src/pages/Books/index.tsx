@@ -1,6 +1,6 @@
 import React, { useState, useEffect }from 'react'; 
 import { Badge, Button, Table } from 'react-bootstrap';    
-import { useHistory } from 'react-router-dom' 
+import { useHistory, useParams } from 'react-router-dom' 
 import api from '../../services/api';  
 import { BookHeader } from './styles';
  
@@ -11,21 +11,25 @@ interface iBook {
   isbn: string; 
   status: boolean; 
 }
- 
+  
+interface IParamsProps {
+  libraryId: string;
+}  
+
 const Detail: React.FC = () => {  
      
   const history = useHistory()
   const [books, setBooks] = useState<iBook[]>([]); 
-   
+  const { libraryId } = useParams<IParamsProps>();   
+  const libraryIdNumber = Number(libraryId); 
 
   useEffect(() => { 
-    loadBooks();     
+    loadBooks(libraryIdNumber);     
   }, []);
    
-  async function loadBooks() { 
-    const response = await api.get('/books'); 
-    console.log(response); 
-    setBooks(response.data);
+  async function loadBooks(libraryId: number) { 
+    const { data } = await api.get(`localhost:3010/library/${libraryId}/books`); 
+    setBooks(data);
   } 
    
   function newBooks () { 
@@ -38,12 +42,12 @@ const Detail: React.FC = () => {
  
   async function statusBook(id: number) { 
     await api.patch(`/books/${id}`)
-    loadBooks()
+    loadBooks(libraryIdNumber)
   }
   
   async function deleteBook(id: number) { 
     await api.delete(`/books/${id}`)
-    loadBooks()
+    loadBooks(libraryIdNumber);
   } 
 
   function viewBook (id: number) { 

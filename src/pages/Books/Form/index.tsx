@@ -20,6 +20,7 @@ interface IParamsProps {
 
 const Books: React.FC = () => {  
    
+  const {  } = useParams();  
   const history = useHistory()
   const { id } = useParams<IParamsProps>();
   const [model, setModel] = useState<iBook>({ 

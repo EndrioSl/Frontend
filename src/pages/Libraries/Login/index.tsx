@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { useHistory, useLocation, Link } from 'react-router-dom';
+import { useHistory, useLocation, Link, Redirect } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import api from '../../../services/api';
 import { useFormik } from "formik";
@@ -36,7 +36,7 @@ const LibraryLogin: React.FC = () => {
                         nome: login.nome, 
                     }    
                     configureLoginStorage(libraryLoginRepository);  
-                    history.push("/Livros");
+                    <Redirect to="/Livros"/>
                 }   
             }  
             
