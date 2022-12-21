@@ -23,17 +23,23 @@ const Detail: React.FC = () => {
   const { libraryId } = useParams<IParamsProps>();   
   const libraryIdNumber = Number(libraryId); 
 
-  useEffect(() => { 
-    loadBooks(libraryIdNumber);     
+  useEffect(() => {  
+    loadBooks(libraryIdNumber);    
   }, []);
-   
+     
   async function loadBooks(libraryId: number) { 
-    const { data } = await api.get(`localhost:3010/library/${libraryId}/books`); 
+    const { data } = await api.get(`/library/${libraryId}/books`);  
     setBooks(data);
   } 
-   
+    
+  async function loadBookss() { 
+    const response = await api.get('/books'); 
+    console.log(response); 
+    setBooks(response.data); 
+  } 
+
   function newBooks () { 
-    history.push('/CadastroLivros')
+    history.push(`/Biblioteca/${libraryId}/CadastroLivros`)
   }   
    
   function editBook(id: number) {

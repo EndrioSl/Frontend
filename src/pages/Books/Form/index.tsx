@@ -15,14 +15,16 @@ interface iBook {
 }
  
 interface IParamsProps {
-  id: string;
+  id: string;  
+  libraryId: string;
 } 
 
 const Books: React.FC = () => {  
    
   const {  } = useParams();  
   const history = useHistory()
-  const { id } = useParams<IParamsProps>();
+  const { id } = useParams<IParamsProps>(); 
+  const { libraryId } = useParams<IParamsProps>();
   const [model, setModel] = useState<iBook>({ 
       isbn: '',
       title: '', 
@@ -56,7 +58,7 @@ const Books: React.FC = () => {
       if (id !== undefined) {
           const response = await api.put(`/books/${id}`, model)
       } else {
-          const response = await api.post('/books', model)
+          const response = await api.post(`/library/${libraryId}/saveBook`, model)
       }
       back()
 

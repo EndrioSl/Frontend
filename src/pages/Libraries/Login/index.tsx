@@ -1,9 +1,10 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { useHistory, useLocation, Link, Redirect } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import api from '../../../services/api';
 import { useFormik } from "formik";
 import libraryService from "../../../services/libraryService"
+import routes from "../../../routes";
 
 
 interface iLibraryLogin {
@@ -15,11 +16,11 @@ interface iLibraryLoginRepository {
     id: string;
     email: string;
     nome: string;
-}
-const LibraryLogin: React.FC = () => {   
-     
-        const history = useHistory()
+} 
 
+const LibraryLogin: React.FC = () => {    
+
+        const history = useHistory()
         const location = useLocation(); 
      
         const onSubmit = async () => {
@@ -35,8 +36,8 @@ const LibraryLogin: React.FC = () => {
                         email: login.email, 
                         nome: login.nome, 
                     }    
-                    configureLoginStorage(libraryLoginRepository);  
-                    <Redirect to="/Livros"/>
+                    configureLoginStorage(libraryLoginRepository);    
+                    goLibrary(login.id);
                 }   
             }  
             
@@ -54,7 +55,12 @@ const LibraryLogin: React.FC = () => {
                 initialValues,
                 //validationSchema: loginSchema,
                 onSubmit
-            });
+            }); 
+             
+            
+            const goLibrary = (id: string) => {
+                history.push(`/Biblioteca/${id}/Livros`);
+            }
 
             return (
                 <div className="container">
