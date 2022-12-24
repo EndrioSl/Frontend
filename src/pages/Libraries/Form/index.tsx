@@ -13,7 +13,7 @@ interface IParamsProps {
   id: string;
 } 
 
-const Libraries: React.FC = () => {  
+const RegisterLibraries: React.FC = () => {  
    
   const history = useHistory()
   const { id } = useParams<IParamsProps>();
@@ -110,4 +110,4 @@ const Libraries: React.FC = () => {
   );
  } 
   
-export default Libraries; 
+export default RegisterLibraries; 

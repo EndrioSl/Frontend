@@ -11,9 +11,10 @@ const Header: React.FC = () => {
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto my-2 my-lg-0"> 
                         <Nav.Link className='nav-link' as={Link} to="/" >Início</Nav.Link>
-                        <Nav.Link className='nav-link' as={Link} to ="/Livros">Livros</Nav.Link> 
-                        <Nav.Link className='nav-link' as={Link} to ="/Bibliotecas">Biblioteca</Nav.Link> 
-                        <Nav.Link className='nav-link' as={Link} to ="/LogarBiblioteca">Biblioteca</Nav.Link>                         
+                        <Nav.Link className='nav-link' as={Link} to ="/Livros">Livros</Nav.Link>  
+                        <Nav.Link className='nav-link' as={Link} to ="/Bibliotecas">Bibliotecas</Nav.Link> 
+                        <Nav.Link className='nav-link' as={Link} to ="/CadastroBiblioteca">CBiblioteca</Nav.Link> 
+                        <Nav.Link className='nav-link' as={Link} to ="/LogarBiblioteca">LBiblioteca</Nav.Link>                         
                     </Nav>
                 </Navbar.Collapse>
             </Container>
