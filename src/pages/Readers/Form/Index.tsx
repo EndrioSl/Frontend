@@ -3,31 +3,31 @@ import { useHistory, useParams } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';  
 import api from '../../../services/api';   
 
-interface iLibrary {  
+interface iReader {  
   email: string; 
   password: string; 
   nome: string;   
 }
  
 interface IParamsProps {
-  libraryId: string;
+  readerId: string;
 } 
 
-const LibrariesForm: React.FC = () => {  
+const ReadersForm: React.FC = () => {  
    
   const history = useHistory()
-  const { libraryId } = useParams<IParamsProps>();
-  const [model, setModel] = useState<iLibrary>({ 
+  const { readerId } = useParams<IParamsProps>();
+  const [model, setModel] = useState<iReader>({ 
       email: '',
       password: '', 
       nome: ''
   })
 
   useEffect(() => {
-      if (libraryId !== undefined) {
-          findLibrary(libraryId)
+      if (readerId !== undefined) {
+          findLibrary(readerId)
       }
-  }, [libraryId])
+  }, [readerId])
 
   function updatedModel (e: ChangeEvent<HTMLInputElement>) {
 
@@ -42,18 +42,17 @@ const LibrariesForm: React.FC = () => {
   async function onSubmit (e: ChangeEvent<HTMLFormElement>) {
       e.preventDefault()
  
-      console.log('if',libraryId);
-      if (libraryId !== undefined) {
-          const response = await api.put(`/libraries/${libraryId}`, model)
+      if (readerId !== undefined) {
+          const response = await api.put(`/readers/${readerId}`, model)
       } else {
-          const response = await api.post('/libraries', model)
+          const response = await api.post('/readers', model)
       }
       back()
 
   }
 
   async function findLibrary (libraryId: string) {
-      const response = await api.get(`libraries/${libraryId}`)
+      const response = await api.get(`readers/${readerId}`)
       setModel({ 
           email: response.data.email,
           password: response.data.password, 
@@ -66,8 +65,8 @@ const LibrariesForm: React.FC = () => {
   }
   return (
     <div className="container"> 
-        <div className='library-header'> 
-            <h1>Cadastro Biblioteca</h1> 
+        <div className='reader-header'> 
+            <h1>Cadastro de novo leitor</h1> 
         </div>  
         <div className="container">
                   <Form onSubmit={onSubmit}>
@@ -101,7 +100,7 @@ const LibrariesForm: React.FC = () => {
                     </Form.Group> 
                      
                     <Button variant="dark" type="submit">
-                        Salvar
+                        Cadastrar
                     </Button>
                 </Form>
             </div>
@@ -109,4 +108,4 @@ const LibrariesForm: React.FC = () => {
   );
  } 
   
-export default LibrariesForm; 
+export default ReadersForm; 

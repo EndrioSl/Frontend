@@ -14,7 +14,8 @@ const Header: React.FC = () => {
                         <Nav.Link className='nav-link' as={Link} to ="/Livros">Livros</Nav.Link>  
                         <Nav.Link className='nav-link' as={Link} to ="/Bibliotecas">Bibliotecas</Nav.Link> 
                         <Nav.Link className='nav-link' as={Link} to ="/CadastroBiblioteca">CBiblioteca</Nav.Link> 
-                        <Nav.Link className='nav-link' as={Link} to ="/LogarBiblioteca">LBiblioteca</Nav.Link>                         
+                        <Nav.Link className='nav-link' as={Link} to ="/LogarBiblioteca">LBiblioteca</Nav.Link> 
+                        <Nav.Link className='nav-link' as={Link} to ="/CadastroLeitor">CLeitor</Nav.Link>                                                  
                     </Nav>
                 </Navbar.Collapse>
             </Container>

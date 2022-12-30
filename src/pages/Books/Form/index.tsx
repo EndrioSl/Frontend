@@ -85,8 +85,8 @@ const Books: React.FC = () => {
 
   return (
     <div className="container"> 
-        <div className='books-header'> 
-            <h1>Novo livro</h1> 
+        <div className='books-header'>
+            <h1>{ id ? 'Editar livro' : 'Cadastrar Livro' }</h1> 
         </div>  
         <div className="container">
                   <Form onSubmit={onSubmit}>

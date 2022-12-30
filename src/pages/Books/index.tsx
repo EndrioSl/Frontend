@@ -31,19 +31,13 @@ const Detail: React.FC = () => {
     const { data } = await api.get(`/library/${libraryId}/books`);  
     setBooks(data);
   } 
-    
-  async function loadBookss() { 
-    const response = await api.get('/books'); 
-    console.log(response); 
-    setBooks(response.data); 
-  } 
 
   function newBooks () { 
     history.push(`/Biblioteca/${libraryId}/CadastroLivros`)
   }   
    
   function editBook(id: number) {
-    history.push(`/CadastroLivros/${id}`)
+    history.push(`/Biblioteca/${libraryId}/EditarLivro/${id}`)
 } 
  
   async function statusBook(id: number) { 
@@ -58,13 +52,19 @@ const Detail: React.FC = () => {
 
   function viewBook (id: number) { 
     history.push(`/Livros/${id}`)
-  } 
+  }  
+   
+  function editLibraries () {  
+    console.log('editLibrary',libraryIdNumber);
+    history.push(`/EditarBiblioteca/${libraryId}`)
+  }  
+   
 
   return (
       <div className="container"> 
         <BookHeader> 
             <h1>Livros Registrados</h1> 
-            <Button variant='dark' size='sm' onClick={newBooks}>Novo livro</Button>
+            <Button variant='dark' size='sm' onClick={newBooks}>Novo livro</Button> 
         </BookHeader> 
         <br/> 
         <Table striped bordered hover className="text-center">
@@ -103,7 +103,8 @@ const Detail: React.FC = () => {
              } 
 
           </tbody>
-        </Table>
+        </Table> 
+        <Button variant='dark' size='sm' onClick={editLibraries}>EditarBiblioteca</Button>  
     </div>
   );
  } 

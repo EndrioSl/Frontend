@@ -36,7 +36,6 @@ const Libraries: React.FC = () => {
       <div className="container"> 
         <LibraryHeader> 
             <h1>Biblitecas Registradas</h1> 
-            <Button variant='dark' size='sm' onClick={newLibrary}>Nova biblitoeca</Button>
         </LibraryHeader> 
         <br/> 
         <Table striped bordered hover className="text-center">
