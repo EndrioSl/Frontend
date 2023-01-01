@@ -8,4 +8,11 @@ export const BookHeader = styled.div `
     justify-content: space-between; 
     margin-top: 2%;
 `
+; 
+ 
+export const AllBookCards = styled.div ` 
+ 
+    display: flex; 
+    flex-direction: row;  
+`
 ;

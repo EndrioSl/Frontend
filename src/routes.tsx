@@ -8,6 +8,7 @@ import Libraries from './pages/Libraries';
 import LibrariesForm from './pages/Libraries/Form';  
 import LibraryLogin from './pages/Libraries/Login';    
 import ReadersForm from './pages/Readers/Form/Index';
+import ReaderLogin from './pages/Readers/Login';
 
 const Routes: React.FC = () => { 
   return ( 
@@ -22,6 +23,8 @@ const Routes: React.FC = () => {
           <Route path="/EditarBiblioteca/:libraryId" exact component={LibrariesForm} />
           <Route path="/LogarBiblioteca" exact component={LibraryLogin} />   
           <Route path="/CadastroLeitor" exact component={ReadersForm} />   
+          <Route path="/LoginLeitor" exact component={ReaderLogin} />   
+
       </Switch> 
   ); 
 }   
