@@ -15,4 +15,10 @@ export const AllBookCards = styled.div `
     display: flex; 
     flex-direction: row;  
 `
-;
+; 
+ 
+export const Loading = styled.div ` 
+    text-align: center;  
+`  
+; 
+ 

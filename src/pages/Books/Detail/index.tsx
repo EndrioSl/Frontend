@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom' 
 import { Button, Card, Badge } from 'react-bootstrap';
-import api from '../../../services/api'; 
+import api from '../../../shared/services/api'; 
  
 import moment from 'moment';  
 
@@ -54,12 +54,12 @@ const Books: React.FC = () => {
         <div className="container">
             <br/>
             <div className="book-header">
-                <h1>Datalhes do livro</h1>
+                <h1>Detalhes do livro</h1>
                 <Button variant="dark" size="sm" onClick={back}>Voltar</Button>
             </div>
             <br/>
 
-            <Card> 
+            <Card className='justify-content-flex-start'> 
             <Card.Header as="h3"> { book?.title } </Card.Header>                     
                 <Card.Body> 
                     <Card.Title> { book?.author }</Card.Title>

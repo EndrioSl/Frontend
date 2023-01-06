@@ -1,7 +1,7 @@
 import React, { useState, useEffect }from 'react'; 
 import { Badge, Button, Table } from 'react-bootstrap';    
 import { useHistory, useParams } from 'react-router-dom' 
-import api from '../../services/api';   
+import api from '../../shared/services/api';   
 import { LibraryHeader } from './styles';
  
 interface iLibrary { 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
-import api from '../../../services/api';
+import api from '../../../shared/services/api';
 import { useFormik } from "formik";
-import readerService from "../../../services/readerService"
+import readerService from "../../../shared/services/readerService"
 import routes from "../../../routes";
 
 

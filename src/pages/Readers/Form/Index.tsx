@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent  }from 'react';  
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';  
-import api from '../../../services/api';   
+import api from '../../../shared/services/api';   
 
 interface iReader {  
   email: string; 
